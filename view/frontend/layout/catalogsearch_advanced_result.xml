@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Genesisoft_SearchSeller::css/custom.css"/>
+    </head>
+    <body>
+        <referenceContainer name="page.top">
+            <block name="search.form" class="Genesisoft\SearchSeller\Block\Search\Index" template="Genesisoft_SearchSeller::search/index.phtml" after="catalog.topnav"/>
+        </referenceContainer>
+        <move element="search.form" destination="page.top" before="breadcrumbs"/>
+    </body>
+</page>

@@ -1,0 +1,16 @@
+{
+    "name": "genesisoft/module-searchseller",
+    "description": "",
+    "type": "magento2-module",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Genesisoft\\SearchSeller\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

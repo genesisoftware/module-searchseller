@@ -1,0 +1,120 @@
+<div id="searchForm">
+    <div class="container">
+        <div class="row">
+<!--            <div class="col-lg-3 col-sm-10">-->
+<!--                <input type="text" placeholder="Pesquisar Produto por Cidade" class="form-control" id="searchTextProduct">-->
+<!--            </div>-->
+            <div class="col-lg-3 col-sm-10">
+                <?php echo $this->carregarCidades();?>
+            </div>
+            <div class="col-lg-3 col-sm-10">
+                <?php echo $this->carregarLojas();?>
+            </div>
+            <div class="col-lg-3 col-sm-10">
+                <input type="text" placeholder="Pesquisar Produto" class="form-control" id="searchTextProduct">
+            </div>
+            <div class="col-lg-2 col-sm-2 col-12">
+                <button type="button" id="searchProductsForSeller" class="btn btn-success">PESQUISAR</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    require([ 'jquery', 'jquery/ui'], function($){
+        var base_url = '<?=$this->getBaseUrl(); ?>';
+        $( "#searchProductsForSeller" ).click(function() {
+            var searchText = jQuery('#searchTextProduct').val();
+            var searchCity = jQuery('#selectCityForSeller').val();
+            var searchReseller = jQuery('#selectReseller').val();
+            if(searchText && searchCity && searchReseller){
+                var params = {'searchText': searchText, 'searchCity': searchCity, 'searchReseller': searchReseller };
+                $.ajax({
+                    showLoader: true,
+                    url: base_url+'/search_seller/index',
+                    data: params,
+                    type: "POST",
+                    dataType: 'json'
+                }).done(function (data) {
+                    console.log(data);
+                    window.location.href = data.url;
+                });
+            }else if(searchText && searchCity){
+                var params = {'searchText': searchText, 'searchCity': searchCity};
+                $.ajax({
+                    showLoader: true,
+                    url: base_url+'/search_seller/index',
+                    data: params,
+                    type: "POST",
+                    dataType: 'json'
+                }).done(function (data) {
+                    console.log(data);
+                    window.location.href = data.url;
+                });
+            }else if(searchText && searchReseller){
+                var params = {'searchText': searchText, 'searchReseller': searchReseller };
+                $.ajax({
+                    showLoader: true,
+                    url: base_url+'/search_seller/index',
+                    data: params,
+                    type: "POST",
+                    dataType: 'json'
+                }).done(function (data) {
+                    console.log(data);
+                    window.location.href = data.url;
+                });
+            }else if(searchCity && searchReseller){
+                var params = {'searchCity': searchCity, 'searchReseller': searchReseller };
+                $.ajax({
+                    showLoader: true,
+                    url: base_url+'/search_seller/index',
+                    data: params,
+                    type: "POST",
+                    dataType: 'json'
+                }).done(function (data) {
+                    console.log(data);
+                    window.location.href = data.url;
+                });
+            }else if(searchText){
+                var params = {'searchText': searchText};
+                $.ajax({
+                    showLoader: true,
+                    url: base_url+'/search_seller/index',
+                    data: params,
+                    type: "POST",
+                    dataType: 'json'
+                }).done(function (data) {
+                    console.log(data);
+                    window.location.href = data.url;
+                });
+            }else if(searchCity){
+                var params = {'searchCity': searchCity};
+                $.ajax({
+                    showLoader: true,
+                    url: base_url+'/search_seller/index',
+                    data: params,
+                    type: "POST",
+                    dataType: 'json'
+                }).done(function (data) {
+                    console.log(data);
+                    window.location.href = data.url;
+                });
+            }else if(searchReseller){
+                var params = {'searchReseller': searchReseller};
+                $.ajax({
+                    showLoader: true,
+                    url: base_url+'/search_seller/index',
+                    data: params,
+                    type: "POST",
+                    dataType: 'json'
+                }).done(function (data) {
+                    console.log(data);
+                    window.location.href = data.url;
+                });
+            }else {
+                alert('Pelo menos um dos campos devem ser prenchidos.');
+            }
+        });
+    });
+</script>
+

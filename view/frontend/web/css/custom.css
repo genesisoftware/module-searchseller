@@ -1,0 +1,17 @@
+#searchForm{
+    height: 60px;
+    padding: 15px 40px;
+}
+#searchTextProduct::placeholder{
+    color: #000;
+}
+
+@media screen and (min-width: 767px) {
+    #searchForm{
+        height: auto;
+    }
+}
+/*#searchForm{
+    height: auto;
+    padding: 15px 40px;
+}*/
